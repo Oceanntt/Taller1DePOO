@@ -12,8 +12,8 @@ public class Tallers1 {
 		Scanner scanner = new Scanner(System.in);
 		
 		//cambiar estos strings segun posicion del archivo	
-String RutaRegistros = "C:\\Users\\User\\Downloads\\Registros.txt"; 
-String RutaUsuarios = "C:\\Users\\User\\Downloads\\Usuarios.txt";
+String RutaRegistros = "Registros.txt"; 
+String RutaUsuarios = "Usuarios.txt";
 File registros = new File(RutaRegistros);
 File usuarios = new File(RutaUsuarios);
 
@@ -417,37 +417,6 @@ break;
 
 		}
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		else if (respuestados.equals("4")) {
 
