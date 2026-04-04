@@ -11,7 +11,7 @@ public class Tallers1 {
 	public static void main(String[] args) throws IOException {
 		Scanner scanner = new Scanner(System.in);
 		
-		//cambiar estos strings segun posicion del archivo	
+		//cambiar estos string segun posicion del archivo	
 String RutaRegistros = "Registros.txt"; 
 String RutaUsuarios = "Usuarios.txt";
 File registros = new File(RutaRegistros);
