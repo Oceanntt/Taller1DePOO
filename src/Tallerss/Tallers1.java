@@ -238,9 +238,6 @@ if (tiempo2 >= 0) {
 		}
 
 		else if (respuestados.equals("2")) {
-String[] acts = new String[300];
-String[] fechas = new String[300];
-String[] nombres = new String[300];
 String[] lineacompleta= new String[300];
 String[] actsuser = new String[300];
 Scanner r = new Scanner(registros);
@@ -275,6 +272,7 @@ while (true) {
 try {
 	System.out.print("\nQue actividad deseas modificar?: ");
 	 respuestamodificar = scanner.nextInt();
+	 scanner.nextLine();
 	if (respuestamodificar <= contadorreal && respuestamodificar >= 0) {
 		break;
 	}
@@ -299,6 +297,7 @@ try {
 			+ "3) Tipo de actividad");
 
 	 respuestamodificar = scanner.nextInt();
+	 
 	if (respuestamodificar <= 3 && respuestamodificar >= 0) {
 		break;
 	}
@@ -412,12 +411,11 @@ FileWriter escribir = new FileWriter(registros);
 for (int i = 0; i < totalactividades; i++) {
 escribir.write(lineacompleta[i]+"\n");
 }
+escribir.close();
 break;
 		}
-
+r.close();
 		}
-
-		
 		else if (respuestados.equals("4")) {
 
 		try {
@@ -489,20 +487,17 @@ break;
 		}
 
 		}
-
 		else if (respuestados.equals("3")) {
-
+			while(true) {
+			int contador2 = 1;
+			int contador = 0;
+			String[] lineas = new String[300];
+			String[] lineas_user = new String[300];
+			
 		try {
 
 		Scanner scaregistros = new Scanner(registros);
 
-		String[] lineas = new String[300];
-
-		int contador = 0;
-
-		int contador2 = 1;
-
-		System.out.println("Que actividad deseas eliminar?:");
 
 		while(scaregistros.hasNextLine()) {
 
@@ -517,19 +512,50 @@ break;
 		if (partes[0].equals(nombre)) {
 
 		System.out.println(contador2+")"+linea);
-
+		lineas_user[contador2-1] = linea;
 		contador2 += 1;
 
 		}
 
 		}
-
+		scaregistros.close();
 		}
 
 		catch(Exception acjs) {System.out.println("Archivo no encontrado");}
 
+		int respuestaeliminar;
+		System.out.println("0) Regresar");
+		while (true) {
+			try {
+				System.out.println("Que actividad deseas eliminar?:");
+				 respuestaeliminar = scanner.nextInt();
+				 scanner.nextLine();
+				if (respuestaeliminar <= contador2 && respuestaeliminar >= 0) {
+					break;
+				}
+				System.out.println("Numero de actividad invalido");
+			}
+			catch(Exception o) {
+				System.out.println("Actividad inexistente");
+				scanner.nextLine();
+			}
 		}
-
+		if (respuestaeliminar ==0) {break;}
+		FileWriter escritor = new FileWriter(registros);
+for (int i = 0; i < contador; i++) {
+	if(lineas[i].equals(lineas_user[respuestaeliminar-1])) {
+		continue;
+	}
+	else {
+		escritor.write(lineas[i]+"\n");
+	}
+}System.out.println("Actividad eliminada");
+escritor.close();
+		break;
+		}
+			
+		}
+		
 		}
 
 
@@ -550,8 +576,6 @@ break;
 
 
 		while(true){
-
-
 
 		System.out.println("\nQue deseas realizar?: ");
 
@@ -576,23 +600,15 @@ break;
 
 		System.out.println("Numero invalido");
 
-
-
 		scanner.nextLine();
 
 		}
-
-
 		}
-
 
 		if (respuestaalgo == 5) {
 
 		break;
 		}
-
-
-
 
 		if (respuestaalgo == 4) {
 
@@ -1053,4 +1069,3 @@ break;
 		}
 
 	}
-
